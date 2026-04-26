@@ -3,121 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chia Sẻ Game Free | Official Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>CHIASHIGAMEFREE | Hack & Tech Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #007aff;
-            --bg: #ffffff;
-            --card-bg: #f5f5f7;
-            --text: #1d1d1f;
-            --btn-hover: #005bbd;
+            --primary: #00ff88; /* Màu xanh neon kiểu hacker */
+            --secondary: #00d4ff;
+            --bg-dark: #0a0b10;
+            --card-bg: #161b22;
+            --text-main: #e6edf3;
         }
+
         body { 
             font-family: 'Inter', sans-serif; 
-            margin: 0; background: var(--bg); color: var(--text); 
-            line-height: 1.6;
+            margin: 0; background-color: var(--bg-dark); color: var(--text-main);
+            /* Hiệu ứng nền lưới công nghệ */
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90px, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            overflow-x: hidden;
         }
-        
+
+        /* Thanh menu cực ngầu */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 10%; border-bottom: 1px solid #eee;
-            position: sticky; top: 0; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); z-index: 100;
+            padding: 15px 10%; background: rgba(10, 11, 16, 0.8);
+            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+            position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; color: var(--primary); }
-        nav a { text-decoration: none; color: #555; margin-left: 30px; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
+        .logo { 
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.6rem; 
+            color: var(--primary); text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+        nav a { text-decoration: none; color: #8b949e; margin-left: 25px; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
 
+        /* Header công nghệ */
         .hero {
-            text-align: center; padding: 80px 20px;
-            background: radial-gradient(circle at center, #f0f7ff 0%, #ffffff 100%);
+            text-align: center; padding: 100px 20px;
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
-        .hero p { font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto 30px auto; }
-        
-        .container {
-            max-width: 1100px; margin: 0 auto; padding: 40px 20px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+        .hero h1 { 
+            font-family: 'Space Grotesk', sans-serif; font-size: 4rem; margin: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
         }
+        .hero p { font-size: 1.2rem; color: #8b949e; max-width: 600px; margin: 20px auto; }
 
-        /* Khung Game xịn xò */
+        /* Khung Game kiểu KRNL */
+        .container {
+            max-width: 1200px; margin: 0 auto; padding: 40px 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
+        }
         .game-card {
-            background: var(--card-bg); border-radius: 28px; padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex; flex-direction: column; justify-content: space-between;
-            border: 1px solid rgba(0,0,0,0.05);
+            background: var(--card-bg); border-radius: 20px; padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.4s;
+            position: relative; overflow: hidden;
+        }
+        .game-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: 0.3s;
         }
         .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            background: #fff;
-            border-color: var(--primary);
+            transform: translateY(-10px); border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
         }
-        .game-card h3 { font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 700; }
-        .game-card p { color: #666; font-size: 1rem; margin-bottom: 25px; min-height: 50px; }
+        .game-card:hover::before { opacity: 1; }
+        .game-card h3 { font-size: 1.8rem; margin: 0 0 10px 0; color: #fff; }
+        .game-card p { color: #8b949e; font-size: 0.95rem; margin-bottom: 25px; }
 
-        /* Phần nút Download đẹp */
-        .download-area {
-            display: flex; flex-direction: column; gap: 10px;
-        }
+        /* Nút bấm công nghệ cao */
         .btn-dl {
             display: flex; align-items: center; justify-content: center;
-            background: var(--primary); color: white; padding: 16px;
-            border-radius: 18px; text-decoration: none; font-weight: 600;
-            transition: 0.3s; box-shadow: 0 8px 15px rgba(0,122,255,0.15);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #000; padding: 15px; border-radius: 12px;
+            text-decoration: none; font-weight: 700; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
         }
         .btn-dl:hover {
-            background: var(--btn-hover);
-            box-shadow: 0 12px 20px rgba(0,122,255,0.3);
+            filter: brightness(1.2); transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
         }
-        .btn-dl span { font-size: 0.8rem; opacity: 0.8; margin-left: 8px; font-weight: 400; }
+        .btn-dl span { font-size: 0.7rem; margin-left: 10px; background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px; }
 
-        footer { text-align: center; padding: 60px; color: #999; font-size: 0.9rem; }
+        footer { text-align: center; padding: 80px 20px; color: #484f58; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">CHIASHIGAMEFREE</div>
+    <div class="logo">CSGF_TECH</div>
     <div class="menu">
-        <a href="#">Trang chủ</a>
-        <a href="#">Yêu cầu game</a>
+        <a href="index.html">Trang chủ</a>
+        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Yêu cầu game</a>
     </div>
 </nav>
 
 <section class="hero">
-    <h1>Kho Game Miễn Phí</h1>
-    <p>Tải xuống những tựa game hot nhất hoàn toàn miễn phí và an toàn.</p>
+    <h1>KHO HACK & TECH</h1>
+    <p>Tổng hợp những bản Mod, Exploit và Tool công nghệ mới nhất cho game thủ Việt.</p>
 </section>
 
 <div class="container">
     <div class="game-card">
-        <div>
-            <h3>Pacify</h3>
-            <p>Trải nghiệm cảm giác kinh dị tột độ cùng bạn bè trong ngôi nhà ma ám.</p>
-        </div>
-        <div class="download-area">
-            <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" class="btn-dl" target="_blank">
-                Tải xuống ngay <span>(Google Drive)</span>
-            </a>
-        </div>
+        <h3>KRNL Roblox</h3>
+        <p>Bản Exploit ổn định nhất cho Roblox, Bypass Key nhanh, an toàn cho tài khoản.</p>
+        <a href="#" class="btn-dl">Download KRNL <span>v2.4.1</span></a>
     </div>
 
     <div class="game-card">
-        <div>
-            <h3>Age of History 3</h3>
-            <p>Đỉnh cao game chiến thuật, dẫn dắt quốc gia của bạn thống trị thế giới.</p>
-        </div>
-        <div class="download-area">
-            <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" class="btn-dl" target="_blank">
-                Tải xuống ngay <span>(MediaFire)</span>
-            </a>
-        </div>
+        <h3>Age of History 3</h3>
+        <p>Bản Full Unlocked cho PC & Android. Mod tiền vô hạn và mở khóa tất cả các kịch bản.</p>
+        <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-dl">Tải AoH 3 <span>MEDIAFIRE</span></a>
+    </div>
+
+    <div class="game-card">
+        <h3>Pacify Mod Menu</h3>
+        <p>Kích hoạt Menu Mod: Chạy nhanh, tàng hình, nhìn xuyên tường để "bán hành" cho ma.</p>
+        <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-dl">Tải Pacify <span>DRIVE</span></a>
     </div>
 </div>
 
 <footer>
-    &copy; 2026 CSGF Team. Mọi tệp tin đều được kiểm tra an toàn.
+    SYSTEM STATUS: <span style="color: var(--primary);">ONLINE</span><br>
+    &copy; 2026 CHIASHIGAMEFREE - DEVELOPED BY HIEP
 </footer>
 
 </body>
