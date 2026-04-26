@@ -1,24 +1,104 @@
-Set up GitHub Copilot
-Use GitHub's AI pair programmer to autocomplete suggestions as you code.
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chia Sẻ Game Free | Official Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007aff; /* Màu xanh kiểu công nghệ */
+            --bg: #ffffff;
+            --text: #1d1d1f;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; background: var(--bg); color: var(--text); 
+            line-height: 1.6;
+        }
+        
+        /* Header cực kỳ tối giản */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; border-bottom: 1px solid #eee;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+        nav a { text-decoration: none; color: #555; margin-left: 30px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
 
-Add collaborators to this repository
-Search for people using their GitHub username or email address.
+        /* Phần giới thiệu chính (Hero Section) */
+        .hero {
+            text-align: center; padding: 100px 20px;
+            background: radial-gradient(circle at center, #f0f7ff 0%, #ffffff 100%);
+        }
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero p { font-size: 1.5rem; color: #666; max-width: 700px; margin: 0 auto 30px auto; }
+        
+        /* Nút bấm bo tròn kiểu Apple/GitHub */
+        .btn-main {
+            background: var(--primary); color: white; padding: 15px 40px;
+            border-radius: 50px; text-decoration: none; font-weight: 600;
+            font-size: 1.1rem; display: inline-block; box-shadow: 0 10px 20px rgba(0,122,255,0.2);
+            transition: 0.3s;
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,122,255,0.3); }
 
-Quick setup — if you’ve done this kind of thing before
-or	
-https://github.com/vumanhhiep78-maker/chiasegamefree.git
-Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+        /* Khu vực danh sách sản phẩm */
+        .features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; padding: 50px 10%;
+        }
+        .feature-card {
+            padding: 40px; border-radius: 24px; background: #f5f5f7;
+            text-align: left; transition: 0.3s;
+        }
+        .feature-card:hover { background: #e8e8ed; }
+        .feature-card h3 { font-size: 1.8rem; margin-top: 0; }
+        .feature-card p { color: #666; }
 
-…or create a new repository on the command line
-echo "# chiasegamefree" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/vumanhhiep78-maker/chiasegamefree.git
-git push -u origin main
-…or push an existing repository from the command line
-git remote add origin https://github.com/vumanhhiep78-maker/chiasegamefree.git
-git branch -M main
-git push -u origin main
- ProTip! Use the URL for this page when adding GitHub as a remote.
+        footer { text-align: center; padding: 50px; color: #999; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">CSGF</div>
+    <div class="menu">
+        <a href="#">Trang chủ</a>
+        <a href="#">Github</a>
+        <a href="#">Discord</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Chia Sẻ Game Free</h1>
+    <p>Nền tảng tải game miễn phí, an toàn và cực kỳ mượt mà dành cho PC & Mobile.</p>
+    <a href="#download" class="btn-main">Tải xuống ngay</a>
+</section>
+
+<section class="features" id="download">
+    <div class="feature-card">
+        <h3>Minecraft PE</h3>
+        <p>Phiên bản mới nhất, hỗ trợ tiếng Việt và đầy đủ các tính năng online.</p>
+        <a href="#" style="color: var(--primary); font-weight: bold; text-decoration: none;">Xem thêm →</a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Roblox Mod</h3>
+        <p>Tối ưu hóa hiệu năng cho máy yếu, tích hợp sẵn Menu Mod tiện lợi.</p>
+        <a href="#" style="color: var(--primary); font-weight: bold; text-decoration: none;">Xem thêm →</a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Game Tools</h3>
+        <p>Các công cụ hỗ trợ chơi game mượt hơn và quản lý file tốt hơn.</p>
+        <a href="#" style="color: var(--primary); font-weight: bold; text-decoration: none;">Xem thêm →</a>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Chia Sẻ Game Free. This is an open-source project.
+</footer>
+
+</body>
+</html>
