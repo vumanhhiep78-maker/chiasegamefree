@@ -3,134 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHIASHIGAMEFREE | Hack & Tech Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>CSGF | Game Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00ff88; /* Màu xanh neon kiểu hacker */
-            --secondary: #00d4ff;
-            --bg-dark: #0a0b10;
-            --card-bg: #161b22;
-            --text-main: #e6edf3;
+            --sidebar-bg: #111111;
+            --main-bg: #000000;
+            --accent: #007bff; /* Màu xanh dương công nghệ */
+            --text-dim: #888888;
+            --border: #222222;
         }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; background-color: var(--bg-dark); color: var(--text-main);
-            /* Hiệu ứng nền lưới công nghệ */
-            background-image: 
-                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
-                linear-gradient(90px, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            overflow-x: hidden;
+        body {
+            margin: 0; display: flex; font-family: 'Inter', sans-serif;
+            background: var(--main-bg); color: white;
         }
 
-        /* Thanh menu cực ngầu */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 10%; background: rgba(10, 11, 16, 0.8);
-            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0, 255, 136, 0.2);
-            position: sticky; top: 0; z-index: 1000;
+        /* MENU DỌC BÊN TRÁI (SIDEBAR) */
+        .sidebar {
+            width: 260px; height: 100vh; background: var(--sidebar-bg);
+            border-right: 1px solid var(--border); position: fixed;
+            padding: 30px 20px; box-sizing: border-box; overflow-y: auto;
         }
-        .logo { 
-            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.6rem; 
-            color: var(--primary); text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-        }
-        nav a { text-decoration: none; color: #8b949e; margin-left: 25px; font-weight: 600; transition: 0.3s; }
-        nav a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
 
-        /* Header công nghệ */
-        .hero {
-            text-align: center; padding: 100px 20px;
-            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-        }
-        .hero h1 { 
-            font-family: 'Space Grotesk', sans-serif; font-size: 4rem; margin: 0;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            letter-spacing: -2px;
-        }
-        .hero p { font-size: 1.2rem; color: #8b949e; max-width: 600px; margin: 20px auto; }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--accent); margin-bottom: 40px; }
 
-        /* Khung Game kiểu KRNL */
-        .container {
-            max-width: 1200px; margin: 0 auto; padding: 40px 20px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
+        .menu-label {
+            font-size: 0.7rem; color: var(--text-dim); font-weight: 700;
+            letter-spacing: 1px; margin: 20px 0 10px; text-transform: uppercase;
         }
+
+        .sidebar a {
+            display: block; color: #ccc; text-decoration: none;
+            padding: 10px 0; font-size: 0.95rem; transition: 0.2s;
+        }
+
+        .sidebar a:hover { color: var(--accent); }
+        .sidebar a.active { color: white; border-left: 2px solid var(--accent); padding-left: 10px; }
+
+        /* NỘI DUNG CHÍNH BÊN PHẢI */
+        .main-content {
+            margin-left: 260px; padding: 60px 10%; width: 100%;
+        }
+
+        .header-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 40px; }
+
+        .game-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+        }
+
         .game-card {
-            background: var(--card-bg); border-radius: 20px; padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.4s;
-            position: relative; overflow: hidden;
+            background: #161616; border: 1px solid var(--border);
+            border-radius: 12px; padding: 25px; transition: 0.3s;
         }
-        .game-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0; transition: 0.3s;
-        }
-        .game-card:hover {
-            transform: translateY(-10px); border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
-        }
-        .game-card:hover::before { opacity: 1; }
-        .game-card h3 { font-size: 1.8rem; margin: 0 0 10px 0; color: #fff; }
-        .game-card p { color: #8b949e; font-size: 0.95rem; margin-bottom: 25px; }
 
-        /* Nút bấm công nghệ cao */
-        .btn-dl {
-            display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #000; padding: 15px; border-radius: 12px;
-            text-decoration: none; font-weight: 700; transition: 0.3s;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .btn-dl:hover {
-            filter: brightness(1.2); transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-        }
-        .btn-dl span { font-size: 0.7rem; margin-left: 10px; background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px; }
+        .game-card:hover { border-color: #444; background: #1c1c1c; }
+        .game-card h3 { margin: 0 0 10px 0; font-size: 1.4rem; }
+        .game-card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
 
-        footer { text-align: center; padding: 80px 20px; color: #484f58; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        .btn-download {
+            display: inline-block; padding: 10px 20px; background: var(--accent);
+            color: white; text-decoration: none; border-radius: 6px;
+            font-weight: 600; font-size: 0.85rem;
+        }
+
+        .btn-download:hover { opacity: 0.9; }
+
+        /* PHẦN GIỚI THIỆU */
+        .intro-box {
+            background: rgba(255,255,255,0.03); border-radius: 12px;
+            padding: 20px; margin-bottom: 50px; border-left: 4px solid var(--accent);
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">CSGF_TECH</div>
-    <div class="menu">
-        <a href="index.html">Trang chủ</a>
-        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Yêu cầu game</a>
-    </div>
-</nav>
+    <div class="sidebar">
+        <div class="logo">CSGF_PORTAL</div>
+        
+        <div class="menu-label">Game List</div>
+        <a href="index.html" class="active">Tất cả game</a>
+        <a href="#">Bản cập nhật mới</a>
 
-<section class="hero">
-    <h1>KHO HACK & TECH</h1>
-    <p>Tổng hợp những bản Mod, Exploit và Tool công nghệ mới nhất cho game thủ Việt.</p>
-</section>
+        <div class="menu-label">Support & Social</div>
+        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Yêu cầu hỗ trợ</a>
+        <a href="#">Tham gia cộng đồng</a>
 
-<div class="container">
-    <div class="game-card">
-        <h3>KRNL Roblox</h3>
-        <p>Bản Exploit ổn định nhất cho Roblox, Bypass Key nhanh, an toàn cho tài khoản.</p>
-        <a href="#" class="btn-dl">Download KRNL <span>v2.4.1</span></a>
+        <div class="menu-label">Development</div>
+        <a href="#">Mã nguồn website</a>
+        <a href="#">Phần cứng yêu cầu</a>
     </div>
 
-    <div class="game-card">
-        <h3>Age of History 3</h3>
-        <p>Bản Full Unlocked cho PC & Android. Mod tiền vô hạn và mở khóa tất cả các kịch bản.</p>
-        <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-dl">Tải AoH 3 <span>MEDIAFIRE</span></a>
-    </div>
+    <div class="main-content">
+        <h1 class="header-title">Trang chủ</h1>
 
-    <div class="game-card">
-        <h3>Pacify Mod Menu</h3>
-        <p>Kích hoạt Menu Mod: Chạy nhanh, tàng hình, nhìn xuyên tường để "bán hành" cho ma.</p>
-        <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-dl">Tải Pacify <span>DRIVE</span></a>
-    </div>
-</div>
+        <div class="intro-box">
+            <p style="margin: 0; color: #ccc;">Chào mừng đến với CSGF. Đây là kho game sạch do Vũ Mạnh Hiệp quản lý. Mọi tệp tin đều được quét virus và tối ưu tốc độ tải.</p>
+        </div>
 
-<footer>
-    SYSTEM STATUS: <span style="color: var(--primary);">ONLINE</span><br>
-    &copy; 2026 CHIASHIGAMEFREE - DEVELOPED BY HIEP
-</footer>
+        <div class="game-grid">
+            <div class="game-card">
+                <h3>Pacify</h3>
+                <p>Phiên bản tệp tin gốc của trò chơi Pacify. Hỗ trợ chơi đa người dùng ổn định trên PC.</p>
+                <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-download">DOWNLOAD (DRIVE)</a>
+            </div>
+
+            <div class="game-card">
+                <h3>Age of History 3</h3>
+                <p>Dữ liệu đầy đủ cho tựa game chiến thuật AoH 3. Bao gồm các quốc gia và bản đồ mới nhất.</p>
+                <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-download">DOWNLOAD (MEDIAFIRE)</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
