@@ -2,51 +2,71 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>CSGF | Hardware Info</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>CSGF | Hardware Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; display: flex; background: #0a0a0c; color: #e1e1e1; font-family: 'JetBrains Mono', monospace; height: 100vh; }
-        .sidebar { width: 240px; background: #111114; border-right: 1px solid rgba(255,255,255,0.08); padding: 30px 15px; box-sizing: border-box; }
-        .sidebar a { display: block; color: #3fb950; text-decoration: none; padding: 12px 15px; font-size: 0.9rem; border-radius: 8px; }
-        .sidebar a:hover { background: rgba(63, 185, 80, 0.1); }
+        body { margin: 0; display: flex; background: #0a0a0c; color: #e1e1e1; font-family: 'JetBrains Mono', monospace; min-height: 100vh; }
+        .sidebar { width: 240px; background: #111114; border-right: 1px solid rgba(255,255,255,0.08); padding: 30px 15px; box-sizing: border-box; position: fixed; height: 100vh; }
+        .sidebar a { display: block; color: #3fb950; text-decoration: none; padding: 12px 15px; font-size: 0.9rem; border-radius: 8px; margin-bottom: 5px; }
+        .content { flex: 1; padding: 40px; margin-left: 240px; box-sizing: border-box; }
         
-        .content { flex: 1; padding: 60px; overflow-y: auto; }
-        .spec-container { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 900px; }
-        .spec-box { 
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); 
-            padding: 30px; border-radius: 12px; border-left: 4px solid #3fb950;
-        }
-        h1 { font-size: 2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
-        h2 { color: #3fb950; font-size: 1rem; text-transform: uppercase; margin-bottom: 20px; }
-        .line { margin: 12px 0; font-size: 0.9rem; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.02); padding-bottom: 5px; }
-        .val { color: #fff; font-weight: bold; float: right; }
+        .game-section { margin-bottom: 60px; }
+        .game-header { border-left: 4px solid #3fb950; padding-left: 15px; margin-bottom: 25px; }
+        .game-header h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; font-size: 1.6rem; color: #fff; }
+        
+        .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .spec-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; border-radius: 10px; }
+        .spec-box h3 { font-size: 0.75rem; color: #3fb950; text-transform: uppercase; margin-top: 0; letter-spacing: 1px; }
+        
+        .line { margin: 10px 0; font-size: 0.8rem; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 4px; }
+        .val { color: #fff; font-weight: bold; text-align: right; }
+        .warning { color: #ffaa00; font-size: 0.7rem; margin-top: 10px; display: block; }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <div style="color: #3fb950; font-weight: 700; margin-bottom: 40px; padding-left: 10px;">CSGF_DOCS</div>
+        <div style="color: #3fb950; font-weight: 700; margin-bottom: 40px; padding-left: 10px; font-family: 'Space Grotesk';">CSGF_VERIFY</div>
         <a href="index.html">← Back to Hub</a>
     </div>
 
     <div class="content">
-        <h1>Hardware Requirements</h1>
-        
-        <div class="spec-container">
-            <div class="spec-box">
-                <h2>Pacify System Specs</h2>
-                <div class="line">OS <span class="val">Windows 10 (64-bit)</span></div>
-                <div class="line">CPU <span class="val">Intel i5 / AMD FX 8500+</span></div>
-                <div class="line">RAM <span class="val">4GB - 8GB</span></div>
-                <div class="line">DirectX <span class="val">Version 11/12</span></div>
-                <div class="line">Storage <span class="val">5GB - 6GB Free Space</span></div>
-            </div>
+        <h1>Hardware Verification Portal</h1>
 
-            <div class="spec-box">
-                <h2>Age of History 3 Specs</h2>
-                <div class="line">CPU <span class="val">2.7 GHz Single / Dual Core</span></div>
-                <div class="line">RAM <span class="val">3GB - 4GB</span></div>
-                <div class="line">GPU <span class="val">GTX 460 or Equivalent</span></div>
-                <div class="line">Storage <span class="val">1GB Free Space</span></div>
+        <div class="game-section">
+            <div class="game-header"><h2>Victoria 3</h2></div>
+            <div class="spec-grid">
+                <div class="spec-box">
+                    <h3>Minimum</h3>
+                    <div class="line">CPU <span class="val">i3-3250 / FX 8370</span></div>
+                    <div class="line">RAM <span class="val">8 GB</span></div>
+                    <div class="line">GPU <span class="val">GTX 660 (2GB)</span></div>
+                    <div class="line">Storage <span class="val">10 GB</span></div>
+                </div>
+                <div class="spec-box">
+                    <h3>Recommended</h3>
+                    <div class="line">CPU <span class="val">i5-6600K / R5 2600X</span></div>
+                    <div class="line">RAM <span class="val">16 GB</span></div>
+                    <div class="line">GPU <span class="val">RTX 2060 (6GB)</span></div>
+                    <span class="warning">! Lưu ý: Game rất ngốn RAM ở giai đoạn Late-game.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-section">
+            <div class="game-header"><h2>Hearts of Iron IV</h2></div>
+            <div class="spec-grid">
+                <div class="spec-box">
+                    <h3>Minimum</h3>
+                    <div class="line">CPU <span class="val">i5-750 / Phenom II X4</span></div>
+                    <div class="line">RAM <span class="val">4 GB</span></div>
+                    <div class="line">GPU <span class="val">GTX 470 (1.2GB)</span></div>
+                </div>
+                <div class="spec-box">
+                    <h3>Recommended</h3>
+                    <div class="line">CPU <span class="val">i5-2500K / Ryzen 3 2200G</span></div>
+                    <div class="line">RAM <span class="val">6 GB</span></div>
+                    <div class="line">GPU <span class="val">GTX 570 (1.2GB)</span></div>
+                </div>
             </div>
         </div>
     </div>
