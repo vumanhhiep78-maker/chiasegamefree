@@ -17,14 +17,15 @@
 
         body {
             margin: 0; display: flex; background: var(--bg-dark); color: #e1e1e1;
-            font-family: 'JetBrains Mono', monospace; height: 100vh; overflow: hidden;
+            font-family: 'JetBrains Mono', monospace; min-height: 100vh;
         }
 
         /* SIDEBAR */
         .sidebar {
-            width: 240px; background: var(--sidebar-bg);
+            width: 240px; height: 100vh; background: var(--sidebar-bg);
             border-right: 1px solid var(--border);
             display: flex; flex-direction: column; padding: 30px 15px; box-sizing: border-box;
+            position: fixed; left: 0; top: 0;
         }
 
         .brand {
@@ -43,10 +44,16 @@
         .sidebar a:hover, .sidebar a.active { background: rgba(63, 185, 80, 0.1); color: var(--accent); }
 
         /* CONTENT */
-        .content { flex: 1; padding: 40px; overflow-y: auto; }
+        .content { flex: 1; padding: 40px; margin-left: 240px; box-sizing: border-box; }
         .header { margin-bottom: 40px; }
         .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin: 0; }
         .header span { color: var(--accent); }
+
+        .section-title {
+            font-size: 1rem; color: var(--accent); margin: 40px 0 20px;
+            text-transform: uppercase; letter-spacing: 3px; border-left: 3px solid var(--accent);
+            padding-left: 15px;
+        }
 
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
 
@@ -57,7 +64,7 @@
 
         .card:hover { border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-5px); }
 
-        .img-container { width: 100%; height: 200px; background: #000; overflow: hidden; }
+        .img-container { width: 100%; height: 180px; background: #000; overflow: hidden; }
 
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8; }
         .card:hover .card-img { transform: scale(1.05); opacity: 1; }
@@ -69,7 +76,9 @@
             font-weight: bold; margin-bottom: 12px; display: inline-block;
         }
 
-        .card h3 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 10px 0; font-size: 1.4rem; }
+        .badge-upcoming { background: rgba(255, 165, 0, 0.15); color: orange; }
+
+        .card h3 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 10px 0; font-size: 1.3rem; }
         .card p { font-size: 0.8rem; color: #888; line-height: 1.5; margin-bottom: 25px; height: 40px; }
 
         .btn-exe {
@@ -78,6 +87,8 @@
             border-radius: 6px; font-weight: 800; font-size: 0.8rem; transition: 0.3s;
         }
         .btn-exe:hover { background: #fff; box-shadow: 0 0 15px #fff; }
+        
+        .btn-disabled { background: #333; color: #666; cursor: not-allowed; }
     </style>
 </head>
 <body>
@@ -93,10 +104,11 @@
 
     <div class="content">
         <div class="header">
-            <div style="font-size: 0.7rem; color: #444; margin-bottom: 5px;">>_ STATUS: ONLINE</div>
-            <h1>Dashboard / <span>Software</span></h1>
+            <div style="font-size: 0.7rem; color: #444; margin-bottom: 5px;">>_ NODE: STABLE</div>
+            <h1>Dashboard / <span>Software Hub</span></h1>
         </div>
 
+        <div class="section-title">Available Releases</div>
         <div class="card-grid">
             <div class="card">
                 <div class="img-container">
@@ -112,13 +124,40 @@
 
             <div class="card">
                 <div class="img-container">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2772750/header.jpg" alt="Age of History 3" class="card-img">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2772750/header.jpg" alt="AoH3" class="card-img">
                 </div>
                 <div class="card-body">
                     <div class="badge">FULL ACCESS</div>
                     <h3>Age_of_History_3</h3>
                     <p>Chiến thuật đại tài trên bản đồ thế giới. Dữ liệu cực kỳ chi tiết.</p>
                     <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-exe">RUN INSTALLER</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Upcoming Projects</div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/529340/header.jpg" alt="Victoria 3" class="card-img">
+                </div>
+                <div class="card-body">
+                    <div class="badge badge-upcoming">ENCRYPTED</div>
+                    <h3>Victoria_3</h3>
+                    <p>Mô phỏng xã hội và kinh tế trong thế kỷ 19. Đang chuẩn bị dữ liệu.</p>
+                    <a href="#" class="btn-exe btn-disabled">COMING SOON</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/394360/header.jpg" alt="HOI4" class="card-img">
+                </div>
+                <div class="card-body">
+                    <div class="badge badge-upcoming">ENCRYPTED</div>
+                    <h3>Hearts_of_Iron_IV</h3>
+                    <p>Đại chiến thế giới thứ 2. Hệ thống đang tối ưu hóa tệp tin.</p>
+                    <a href="#" class="btn-exe btn-disabled">COMING SOON</a>
                 </div>
             </div>
         </div>
