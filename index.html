@@ -9,8 +9,9 @@
         :root {
             --bg-sidebar: #1e1e1e;
             --bg-main: #121212;
-            --lime: #3fb950; /* Màu xanh lá GitHub/Bedrock */
-            --text-gray: #8b949e;
+            --lime: #3fb950; /* Xanh lá Bedrock */
+            --border: #30363d;
+            --text-dim: #8b949e;
         }
 
         body {
@@ -18,81 +19,82 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* SIDEBAR GIỐNG ẢNH BẠN GỬI */
+        /* MENU DỌC BÊN TRÁI (SIDEBAR) */
         .sidebar {
             width: 280px; height: 100vh; background: var(--bg-sidebar);
-            position: fixed; left: 0; top: 0; padding: 20px;
-            box-sizing: border-box; overflow-y: auto; border-right: 1px solid #333;
+            position: fixed; left: 0; top: 0; padding: 30px 20px;
+            box-sizing: border-box; border-right: 1px solid var(--border);
         }
 
-        .category-title {
+        .sys-status { color: var(--lime); font-size: 0.8rem; margin-bottom: 30px; font-weight: bold; }
+
+        .category-label {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem; color: #fff; margin: 25px 0 10px;
+            font-size: 0.75rem; color: var(--text-dim); margin: 25px 0 10px;
             text-transform: uppercase; letter-spacing: 2px;
         }
 
         .sidebar a {
             display: block; color: var(--lime); text-decoration: none;
-            padding: 8px 0; font-size: 0.95rem; transition: 0.2s;
+            padding: 10px 0; font-size: 0.9rem; transition: 0.2s;
         }
 
-        .sidebar a:hover { text-decoration: underline; color: #fff; }
+        .sidebar a:hover { color: white; text-decoration: underline; }
 
-        /* NỘI DUNG CHÍNH */
-        .content { margin-left: 280px; padding: 40px; width: 100%; }
+        /* NỘI DUNG CHÍNH BÊN PHẢI */
+        .main-content { margin-left: 280px; padding: 60px; width: 100%; }
         
-        .header { border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 30px; }
-        .header h1 { font-size: 2rem; color: #fff; margin: 0; }
+        .page-header { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 40px; }
+        .page-header h1 { font-size: 2rem; margin: 0; color: white; }
 
-        .game-card {
-            background: #1c1c1c; border: 1px solid #333;
-            border-radius: 8px; padding: 20px; margin-bottom: 20px;
+        .game-item {
+            background: #1c1c1c; border: 1px solid var(--border);
+            border-radius: 6px; padding: 25px; margin-bottom: 20px;
             border-left: 4px solid var(--lime);
         }
 
-        .btn-dl {
-            background: transparent; border: 1px solid var(--lime);
-            color: var(--lime); padding: 8px 16px; text-decoration: none;
-            border-radius: 4px; font-weight: bold; transition: 0.3s;
-            display: inline-block; margin-top: 10px;
+        .btn-action {
+            display: inline-block; margin-top: 15px; padding: 8px 20px;
+            border: 1px solid var(--lime); color: var(--lime);
+            text-decoration: none; font-weight: bold; border-radius: 4px;
+            transition: 0.3s; font-size: 0.85rem;
         }
 
-        .btn-dl:hover { background: var(--lime); color: #000; }
+        .btn-action:hover { background: var(--lime); color: #000; }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
-        <div style="color: var(--lime); font-weight: bold; margin-bottom: 20px;">CSGF_VERSION_1.0</div>
+        <div class="sys-status">CSGF_PORTAL [ONLINE]</div>
         
-        <div class="category-title">RELEASES</div>
-        <a href="index.html">Releases</a>
-        <a href="#">Public Releases</a>
+        <div class="category-label">RELEASES</div>
+        <a href="index.html">Current Releases</a>
+        <a href="#">Old Versions</a>
 
-        <div class="category-title">DEV INFO</div>
+        <div class="category-label">DEV INFO</div>
         <a href="hardware.html">Hardware Prerequisites</a>
         <a href="#">Website Source</a>
 
-        <div class="category-title">LEGAL</div>
-        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Disclaimers</a>
-        <a href="#">License</a>
+        <div class="category-label">CONTACT</div>
+        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Support Page</a>
     </div>
 
-    <div class="content">
-        <div class="header">
-            <h1>Trang chủ / Releases</h1>
+    <div class="main-content">
+        <div class="page-header">
+            <h1>Releases / Home</h1>
         </div>
 
-        <div class="game-card">
+        <div class="game-item">
             <h3 style="margin:0">Pacify</h3>
-            <p style="color:var(--text-gray)">Bản gốc trò chơi Pacify dành cho PC.</p>
-            <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-dl">DOWNLOAD</a>
+            <p style="color:var(--text-dim)">Tệp tin trò chơi Pacify chính thức dành cho Windows.</p>
+            <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-action">GET DATA</a>
         </div>
 
-        <div class="game-card">
+        <div class="game-item">
             <h3 style="margin:0">Age of History 3</h3>
-            <p style="color:var(--text-gray)">Full Data AoH 3 - MediaFire Link.</p>
-            <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-dl">DOWNLOAD</a>
+            <p style="color:var(--text-dim)">Bản lưu trữ dữ liệu trò chơi AoH 3 đầy đủ.</p>
+            <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-action">GET DATA</a>
         </div>
     </div>
 
