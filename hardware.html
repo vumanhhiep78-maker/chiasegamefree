@@ -10,17 +10,18 @@
         .sidebar a { display: block; color: #3fb950; text-decoration: none; padding: 12px 15px; font-size: 0.9rem; border-radius: 8px; margin-bottom: 5px; }
         .content { flex: 1; padding: 40px; margin-left: 240px; box-sizing: border-box; }
         
-        .game-section { margin-bottom: 60px; }
-        .game-header { border-left: 4px solid #3fb950; padding-left: 15px; margin-bottom: 25px; }
-        .game-header h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; font-size: 1.6rem; color: #fff; }
+        .section-title { color: #555; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; margin: 40px 0 20px; display: block; }
+        .game-section { margin-bottom: 40px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .game-header { border-left: 4px solid #3fb950; padding-left: 15px; margin-bottom: 20px; }
+        .game-header h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; font-size: 1.4rem; color: #fff; }
         
-        .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .spec-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; border-radius: 10px; }
-        .spec-box h3 { font-size: 0.75rem; color: #3fb950; text-transform: uppercase; margin-top: 0; letter-spacing: 1px; }
+        .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .spec-box { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; }
+        .spec-box h3 { font-size: 0.65rem; color: #3fb950; text-transform: uppercase; margin-top: 0; }
         
-        .line { margin: 10px 0; font-size: 0.8rem; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 4px; }
+        .line { margin: 8px 0; font-size: 0.75rem; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.02); padding-bottom: 3px; }
         .val { color: #fff; font-weight: bold; text-align: right; }
-        .warning { color: #ffaa00; font-size: 0.7rem; margin-top: 10px; display: block; }
+        .warning { color: orange; font-size: 0.65rem; margin-top: 8px; display: block; font-style: italic; }
     </style>
 </head>
 <body>
@@ -30,8 +31,10 @@
     </div>
 
     <div class="content">
-        <h1>Hardware Verification Portal</h1>
+        <h1 style="font-family: 'Space Grotesk'; font-size: 2rem;">Hardware Verification Portal</h1>
 
+        <span class="section-title">Grand Strategy / High-End</span>
+        
         <div class="game-section">
             <div class="game-header"><h2>Victoria 3</h2></div>
             <div class="spec-grid">
@@ -40,14 +43,13 @@
                     <div class="line">CPU <span class="val">i3-3250 / FX 8370</span></div>
                     <div class="line">RAM <span class="val">8 GB</span></div>
                     <div class="line">GPU <span class="val">GTX 660 (2GB)</span></div>
-                    <div class="line">Storage <span class="val">10 GB</span></div>
                 </div>
                 <div class="spec-box">
                     <h3>Recommended</h3>
                     <div class="line">CPU <span class="val">i5-6600K / R5 2600X</span></div>
                     <div class="line">RAM <span class="val">16 GB</span></div>
                     <div class="line">GPU <span class="val">RTX 2060 (6GB)</span></div>
-                    <span class="warning">! Lưu ý: Game rất ngốn RAM ở giai đoạn Late-game.</span>
+                    <span class="warning">! Cảnh báo: Rất nặng ở giai đoạn Late-game.</span>
                 </div>
             </div>
         </div>
@@ -55,18 +57,25 @@
         <div class="game-section">
             <div class="game-header"><h2>Hearts of Iron IV</h2></div>
             <div class="spec-grid">
-                <div class="spec-box">
-                    <h3>Minimum</h3>
-                    <div class="line">CPU <span class="val">i5-750 / Phenom II X4</span></div>
-                    <div class="line">RAM <span class="val">4 GB</span></div>
-                    <div class="line">GPU <span class="val">GTX 470 (1.2GB)</span></div>
-                </div>
-                <div class="spec-box">
-                    <h3>Recommended</h3>
-                    <div class="line">CPU <span class="val">i5-2500K / Ryzen 3 2200G</span></div>
-                    <div class="line">RAM <span class="val">6 GB</span></div>
-                    <div class="line">GPU <span class="val">GTX 570 (1.2GB)</span></div>
-                </div>
+                <div class="spec-box"><h3>Minimum</h3><div class="line">RAM <span class="val">4 GB</span></div><div class="line">GPU <span class="val">GTX 470</span></div></div>
+                <div class="spec-box"><h3>Recommended</h3><div class="line">RAM <span class="val">6 GB</span></div><div class="line">GPU <span class="val">GTX 570</span></div></div>
+            </div>
+        </div>
+
+        <span class="section-title">Indie / Classic Stable</span>
+
+        <div class="spec-grid">
+            <div class="game-section" style="margin-bottom:0;">
+                <div class="game-header"><h2>Age of History 3</h2></div>
+                <div class="line">CPU <span class="val">2.0 GHz Dual Core</span></div>
+                <div class="line">RAM <span class="val">4 GB</span></div>
+                <div class="line">GPU <span class="val">Video memory 1GB</span></div>
+            </div>
+            <div class="game-section" style="margin-bottom:0;">
+                <div class="game-header"><h2>Pacify</h2></div>
+                <div class="line">CPU <span class="val">Intel i5 / AMD FX 8500+</span></div>
+                <div class="line">RAM <span class="val">4 GB</span></div>
+                <div class="line">DirectX <span class="val">Version 11</span></div>
             </div>
         </div>
     </div>
