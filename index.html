@@ -20,7 +20,7 @@
             font-family: 'JetBrains Mono', monospace; height: 100vh; overflow: hidden;
         }
 
-        /* SIDEBAR KRNL STYLE */
+        /* SIDEBAR */
         .sidebar {
             width: 240px; background: var(--sidebar-bg);
             border-right: 1px solid var(--border);
@@ -30,58 +30,37 @@
         .brand {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem; font-weight: 700; color: var(--accent);
-            text-shadow: 0 0 15px var(--accent-glow); margin-bottom: 40px; padding-left: 10px;
+            text-shadow: 0 0 15px var(--accent-glow); margin-bottom: 40px;
         }
 
-        .nav-label { font-size: 0.6rem; color: #555; letter-spacing: 2px; margin-bottom: 15px; padding-left: 10px; }
+        .nav-label { font-size: 0.6rem; color: #555; letter-spacing: 2px; margin-bottom: 15px; }
 
         .sidebar a {
             display: flex; align-items: center; color: #888; text-decoration: none;
             padding: 12px 15px; border-radius: 8px; margin-bottom: 5px; font-size: 0.85rem; transition: 0.3s;
         }
 
-        .sidebar a:hover, .sidebar a.active {
-            background: rgba(63, 185, 80, 0.1); color: var(--accent);
-        }
+        .sidebar a:hover, .sidebar a.active { background: rgba(63, 185, 80, 0.1); color: var(--accent); }
 
-        /* MAIN CONTENT */
-        .content {
-            flex: 1; padding: 40px; overflow-y: auto;
-            background: radial-gradient(circle at top right, rgba(63, 185, 80, 0.02), transparent);
-        }
-
+        /* CONTENT */
+        .content { flex: 1; padding: 40px; overflow-y: auto; }
         .header { margin-bottom: 40px; }
         .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin: 0; }
         .header span { color: var(--accent); }
 
-        .card-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
-        }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
 
-        /* CARD STYLE */
         .card {
             background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden;
-            transition: 0.4s; position: relative;
+            border-radius: 12px; overflow: hidden; transition: 0.4s; position: relative;
         }
 
-        .card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 25px var(--accent-glow);
-            transform: translateY(-5px);
-        }
+        .card:hover { border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-5px); }
 
-        /* FIXED IMAGE BOX */
-        .img-container {
-            width: 100%; height: 200px; background: #000; overflow: hidden;
-        }
+        .img-container { width: 100%; height: 200px; background: #000; overflow: hidden; }
 
-        .card-img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: 0.5s; opacity: 0.7;
-        }
-
-        .card:hover .card-img { transform: scale(1.1); opacity: 1; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8; }
+        .card:hover .card-img { transform: scale(1.05); opacity: 1; }
 
         .card-body { padding: 25px; }
         .badge {
@@ -91,57 +70,59 @@
         }
 
         .card h3 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 10px 0; font-size: 1.4rem; }
-        .card p { font-size: 0.8rem; color: #888; line-height: 1.5; margin-bottom: 25px; min-height: 40px; }
+        .card p { font-size: 0.8rem; color: #888; line-height: 1.5; margin-bottom: 25px; height: 40px; }
 
         .btn-exe {
-            display: block; width: 100%; padding: 14px;
-            background: var(--accent); color: #000; text-align: center;
-            text-decoration: none; border-radius: 6px; font-weight: 800;
-            font-size: 0.8rem; transition: 0.3s;
+            display: block; width: 100%; padding: 14px; background: var(--accent);
+            color: #000; text-align: center; text-decoration: none;
+            border-radius: 6px; font-weight: 800; font-size: 0.8rem; transition: 0.3s;
         }
-
         .btn-exe:hover { background: #fff; box-shadow: 0 0 15px #fff; }
-
     </style>
 </head>
 <body>
 
     <div class="sidebar">
         <div class="brand">CSGF_CORE</div>
-        
         <div class="nav-label">TERMINAL</div>
         <a href="index.html" class="active">Main Portal</a>
         <a href="hardware.html">System Specs</a>
-
         <div style="margin-top: auto;" class="nav-label">EXTERNAL</div>
-        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Access Support</a>
+        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Support</a>
     </div>
 
     <div class="content">
         <div class="header">
-            <div style="font-size: 0.7rem; color: #444; margin-bottom: 5px;">>_ NODE: STABLE</div>
+            <div style="font-size: 0.7rem; color: #444; margin-bottom: 5px;">>_ STATUS: ONLINE</div>
             <h1>Dashboard / <span>Software</span></h1>
         </div>
 
         <div class="card-grid">
             <div class="card">
                 <div class="img-container">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_720p/co1v9x.jpg" alt="Pacify" class="card-img">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/967050/header.jpg" alt="Pacify" class="card-img">
                 </div>
                 <div class="card-body">
                     <div class="badge">STABLE RELEASE</div>
                     <h3>Pacify_Standalone</h3>
-                    <p>Trải nghiệm kinh dị đỉnh cao. Đã tối ưu hóa file thực thi sạch.</p>
+                    <p>Khám phá ngôi nhà ma ám. Bản dựng ổn định nhất cho PC.</p>
                     <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-exe">RUN INSTALLER</a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="img-container">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_720p/co8p47.jpg" alt="Age of History 3" class="card-img">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2772750/header.jpg" alt="Age of History 3" class="card-img">
                 </div>
                 <div class="card-body">
                     <div class="badge">FULL ACCESS</div>
                     <h3>Age_of_History_3</h3>
-                    <p>Chỉ huy quân sự, chiến thuật đế chế toàn cầu. Phiên bản mới nhất.</p>
-                    <a href="
+                    <p>Chiến thuật đại tài trên bản đồ thế giới. Dữ liệu cực kỳ chi tiết.</p>
+                    <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-exe">RUN INSTALLER</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
