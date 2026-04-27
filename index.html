@@ -20,7 +20,6 @@
             font-family: 'JetBrains Mono', monospace; height: 100vh; overflow: hidden;
         }
 
-        /* SIDEBAR PHONG CÁCH KRNL */
         .sidebar {
             width: 240px; background: var(--sidebar-bg);
             border-right: 1px solid var(--border);
@@ -35,7 +34,6 @@
             padding-left: 10px;
         }
 
-        .nav-group { margin-bottom: 30px; }
         .nav-label { font-size: 0.65rem; color: #555; letter-spacing: 2px; margin-bottom: 15px; padding-left: 10px; }
 
         .sidebar a {
@@ -46,10 +44,8 @@
 
         .sidebar a:hover, .sidebar a.active {
             background: rgba(63, 185, 80, 0.1); color: var(--accent);
-            box-shadow: inset 0 0 10px rgba(63, 185, 80, 0.05);
         }
 
-        /* MAIN CONTENT AREA */
         .content {
             flex: 1; padding: 40px; overflow-y: auto;
             background: radial-gradient(circle at top right, rgba(63, 185, 80, 0.03), transparent);
@@ -60,15 +56,15 @@
         .header span { color: var(--accent); }
 
         .card-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;
         }
 
-        /* CARD PHONG CÁCH PHẦN MỀM */
         .card {
             background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 12px; padding: 25px; position: relative;
+            border-radius: 12px; overflow: hidden; /* Để ảnh không tràn khỏi góc bo tròn */
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             backdrop-filter: blur(10px);
+            display: flex; flex-direction: column;
         }
 
         .card:hover {
@@ -76,8 +72,19 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .card h3 { font-family: 'Space Grotesk', sans-serif; margin-top: 0; font-size: 1.3rem; }
-        .card p { font-size: 0.85rem; color: #999; line-height: 1.6; }
+        /* THIẾT LẬP HÌNH ẢNH */
+        .card-img {
+            width: 100%; height: 180px; object-fit: cover;
+            border-bottom: 1px solid var(--border);
+            opacity: 0.8; transition: 0.3s;
+        }
+
+        .card:hover .card-img { opacity: 1; }
+
+        .card-body { padding: 20px; flex-grow: 1; }
+
+        .card h3 { font-family: 'Space Grotesk', sans-serif; margin-top: 0; font-size: 1.2rem; }
+        .card p { font-size: 0.8rem; color: #999; line-height: 1.5; margin-bottom: 20px; }
 
         .badge {
             background: rgba(63, 185, 80, 0.15); color: var(--accent);
@@ -86,18 +93,13 @@
         }
 
         .btn-exe {
-            display: inline-block; width: 100%; padding: 12px; margin-top: 20px;
-            background: var(--accent); color: #000; text-align: center;
-            text-decoration: none; border-radius: 6px; font-weight: 700;
-            font-size: 0.85rem; transition: 0.3s; box-sizing: border-box;
+            display: block; padding: 12px; background: var(--accent);
+            color: #000; text-align: center; text-decoration: none;
+            border-radius: 6px; font-weight: 700; font-size: 0.8rem;
+            transition: 0.3s;
         }
 
-        .btn-exe:hover {
-            background: #fff; box-shadow: 0 0 20px rgba(63, 185, 80, 0.4);
-        }
-
-        /* HIỆU ỨNG TRANG TRÍ */
-        .status-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; margin-right: 10px; box-shadow: 0 0 10px var(--accent); }
+        .btn-exe:hover { background: #fff; }
     </style>
 </head>
 <body>
@@ -105,37 +107,39 @@
     <div class="sidebar">
         <div class="brand">CSGF_CORE</div>
         
-        <div class="nav-group">
-            <div class="nav-label">TERMINAL</div>
-            <a href="index.html" class="active">Main Portal</a>
-            <a href="hardware.html">System Specs</a>
-        </div>
+        <div class="nav-label">TERMINAL</div>
+        <a href="index.html" class="active">Main Portal</a>
+        <a href="hardware.html">System Specs</a>
 
-        <div class="nav-group">
-            <div class="nav-label">EXTERNAL</div>
-            <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Access Support</a>
-        </div>
+        <div style="margin-top: auto;" class="nav-label">EXTERNAL</div>
+        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Support</a>
     </div>
 
     <div class="content">
         <div class="header">
-            <div style="font-size: 0.8rem; color: #555; margin-bottom: 10px;">>_ System status: <span style="color: var(--accent);">STABLE</span></div>
-            <h1>Dashboard / <span>Software Hub</span></h1>
+            <div style="font-size: 0.8rem; color: #555; margin-bottom: 10px;">>_ System status: <span style="color: var(--accent);">READY</span></div>
+            <h1>Dashboard / <span>Software</span></h1>
         </div>
 
         <div class="card-grid">
             <div class="card">
-                <div class="badge">STABLE RELEASE</div>
-                <h3>Pacify_Standalone</h3>
-                <p>Cung cấp môi trường chạy trò chơi Pacify ổn định. Đã được kiểm tra và đóng gói file sạch.</p>
-                <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-exe">RUN INSTALLER</a>
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/512136206114976283_0" alt="Pacify" class="card-img">
+                <div class="card-body">
+                    <div class="badge">STABLE RELEASE</div>
+                    <h3>Pacify_Standalone</h3>
+                    <p>Trải nghiệm kinh dị đỉnh cao. File sạch, chạy trực tiếp không cần cài đặt rườm rà.</p>
+                    <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-exe">RUN INSTALLER</a>
+                </div>
             </div>
 
             <div class="card">
-                <div class="badge">FULL VERSION</div>
-                <h3>Age_of_History_3</h3>
-                <p>Bộ dữ liệu chiến thuật đầy đủ. Hỗ trợ hệ thống bản đồ mở rộng và các kịch bản lịch sử.</p>
-                <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-exe">RUN INSTALLER</a>
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/4752696570895801016_0" alt="Age of History 3" class="card-img">
+                <div class="card-body">
+                    <div class="badge">FULL VERSION</div>
+                    <h3>Age_of_History_3</h3>
+                    <p>Chỉ huy quân đội, xây dựng đế chế. Dữ liệu bao gồm đầy đủ các kịch bản mới nhất.</p>
+                    <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-exe">RUN INSTALLER</a>
+                </div>
             </div>
         </div>
     </div>
