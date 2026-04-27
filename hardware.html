@@ -2,28 +2,53 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Hardware Prerequisites</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <title>CSGF | Hardware Info</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            background: #121212; color: #3fb950; 
-            font-family: 'JetBrains Mono', monospace; padding: 60px 10%; 
+        body { margin: 0; display: flex; background: #0a0a0c; color: #e1e1e1; font-family: 'JetBrains Mono', monospace; height: 100vh; }
+        .sidebar { width: 240px; background: #111114; border-right: 1px solid rgba(255,255,255,0.08); padding: 30px 15px; box-sizing: border-box; }
+        .sidebar a { display: block; color: #3fb950; text-decoration: none; padding: 12px 15px; font-size: 0.9rem; border-radius: 8px; }
+        .sidebar a:hover { background: rgba(63, 185, 80, 0.1); }
+        
+        .content { flex: 1; padding: 60px; overflow-y: auto; }
+        .spec-container { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 900px; }
+        .spec-box { 
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); 
+            padding: 30px; border-radius: 12px; border-left: 4px solid #3fb950;
         }
-        .box { border: 1px solid #30363d; padding: 40px; border-radius: 8px; background: #1c1c1c; }
-        h1 { color: white; border-bottom: 2px solid #3fb950; padding-bottom: 10px; }
-        .spec { margin: 15px 0; font-size: 1.1rem; }
-        .back-link { display: inline-block; margin-top: 30px; color: white; text-decoration: none; border-bottom: 1px solid white; }
+        h1 { font-size: 2rem; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        h2 { color: #3fb950; font-size: 1rem; text-transform: uppercase; margin-bottom: 20px; }
+        .line { margin: 12px 0; font-size: 0.9rem; color: #aaa; border-bottom: 1px solid rgba(255,255,255,0.02); padding-bottom: 5px; }
+        .val { color: #fff; font-weight: bold; float: right; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Yêu cầu phần cứng</h1>
-        <div class="spec">> CPU: Intel Core i5-1235U hoặc tương đương</div>
-        <div class="spec">> RAM: 16GB (Khuyên dùng Dual Channel)</div>
-        <div class="spec">> GPU: Intel Iris Xe Graphics</div>
-        <div class="spec">> OS: Windows 11 64-bit</div>
-        <div class="spec">> Storage: Tối thiểu 500MB trống</div>
-        <a href="index.html" class="back-link">Quay lại trang chủ</a>
+    <div class="sidebar">
+        <div style="color: #3fb950; font-weight: 700; margin-bottom: 40px; padding-left: 10px;">CSGF_DOCS</div>
+        <a href="index.html">← Back to Hub</a>
+    </div>
+
+    <div class="content">
+        <h1>Hardware Requirements</h1>
+        
+        <div class="spec-container">
+            <div class="spec-box">
+                <h2>Pacify System Specs</h2>
+                <div class="line">OS <span class="val">Windows 10 (64-bit)</span></div>
+                <div class="line">CPU <span class="val">Intel i5 / AMD FX 8500+</span></div>
+                <div class="line">RAM <span class="val">4GB - 8GB</span></div>
+                <div class="line">DirectX <span class="val">Version 11/12</span></div>
+                <div class="line">Storage <span class="val">5GB - 6GB Free Space</span></div>
+            </div>
+
+            <div class="spec-box">
+                <h2>Age of History 3 Specs</h2>
+                <div class="line">CPU <span class="val">2.7 GHz Single / Dual Core</span></div>
+                <div class="line">RAM <span class="val">3GB - 4GB</span></div>
+                <div class="line">GPU <span class="val">GTX 460 or Equivalent</span></div>
+                <div class="line">Storage <span class="val">1GB Free Space</span></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
