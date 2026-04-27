@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSGF Dashboard</title>
+    <title>CSGF_CORE | DASHBOARD</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #0a0a0c;
             --sidebar-bg: #111114;
             --accent: #3fb950;
-            --accent-glow: rgba(63, 185, 80, 0.3);
-            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent-glow: rgba(63, 185, 80, 0.4);
+            --card-bg: #16161a;
             --border: rgba(255, 255, 255, 0.08);
         }
 
@@ -20,86 +20,88 @@
             font-family: 'JetBrains Mono', monospace; height: 100vh; overflow: hidden;
         }
 
+        /* SIDEBAR KRNL STYLE */
         .sidebar {
             width: 240px; background: var(--sidebar-bg);
             border-right: 1px solid var(--border);
-            display: flex; flex-direction: column; padding: 30px 15px;
-            box-sizing: border-box;
+            display: flex; flex-direction: column; padding: 30px 15px; box-sizing: border-box;
         }
 
         .brand {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem; font-weight: 700; color: var(--accent);
-            text-shadow: 0 0 15px var(--accent-glow); margin-bottom: 40px;
-            padding-left: 10px;
+            text-shadow: 0 0 15px var(--accent-glow); margin-bottom: 40px; padding-left: 10px;
         }
 
-        .nav-label { font-size: 0.65rem; color: #555; letter-spacing: 2px; margin-bottom: 15px; padding-left: 10px; }
+        .nav-label { font-size: 0.6rem; color: #555; letter-spacing: 2px; margin-bottom: 15px; padding-left: 10px; }
 
         .sidebar a {
             display: flex; align-items: center; color: #888; text-decoration: none;
-            padding: 12px 15px; border-radius: 8px; margin-bottom: 5px;
-            font-size: 0.9rem; transition: 0.3s;
+            padding: 12px 15px; border-radius: 8px; margin-bottom: 5px; font-size: 0.85rem; transition: 0.3s;
         }
 
         .sidebar a:hover, .sidebar a.active {
             background: rgba(63, 185, 80, 0.1); color: var(--accent);
         }
 
+        /* MAIN CONTENT */
         .content {
             flex: 1; padding: 40px; overflow-y: auto;
-            background: radial-gradient(circle at top right, rgba(63, 185, 80, 0.03), transparent);
+            background: radial-gradient(circle at top right, rgba(63, 185, 80, 0.02), transparent);
         }
 
         .header { margin-bottom: 40px; }
-        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin: 0; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin: 0; }
         .header span { color: var(--accent); }
 
         .card-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
         }
 
+        /* CARD STYLE */
         .card {
             background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden; /* Để ảnh không tràn khỏi góc bo tròn */
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-            display: flex; flex-direction: column;
+            border-radius: 12px; overflow: hidden;
+            transition: 0.4s; position: relative;
         }
 
         .card:hover {
-            transform: translateY(-5px); border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent);
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-5px);
         }
 
-        /* THIẾT LẬP HÌNH ẢNH */
+        /* FIXED IMAGE BOX */
+        .img-container {
+            width: 100%; height: 200px; background: #000; overflow: hidden;
+        }
+
         .card-img {
-            width: 100%; height: 180px; object-fit: cover;
-            border-bottom: 1px solid var(--border);
-            opacity: 0.8; transition: 0.3s;
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.5s; opacity: 0.7;
         }
 
-        .card:hover .card-img { opacity: 1; }
+        .card:hover .card-img { transform: scale(1.1); opacity: 1; }
 
-        .card-body { padding: 20px; flex-grow: 1; }
-
-        .card h3 { font-family: 'Space Grotesk', sans-serif; margin-top: 0; font-size: 1.2rem; }
-        .card p { font-size: 0.8rem; color: #999; line-height: 1.5; margin-bottom: 20px; }
-
+        .card-body { padding: 25px; }
         .badge {
             background: rgba(63, 185, 80, 0.15); color: var(--accent);
-            font-size: 0.6rem; padding: 3px 8px; border-radius: 4px;
-            font-weight: bold; margin-bottom: 10px; display: inline-block;
+            font-size: 0.6rem; padding: 4px 10px; border-radius: 4px;
+            font-weight: bold; margin-bottom: 12px; display: inline-block;
         }
+
+        .card h3 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 10px 0; font-size: 1.4rem; }
+        .card p { font-size: 0.8rem; color: #888; line-height: 1.5; margin-bottom: 25px; min-height: 40px; }
 
         .btn-exe {
-            display: block; padding: 12px; background: var(--accent);
-            color: #000; text-align: center; text-decoration: none;
-            border-radius: 6px; font-weight: 700; font-size: 0.8rem;
-            transition: 0.3s;
+            display: block; width: 100%; padding: 14px;
+            background: var(--accent); color: #000; text-align: center;
+            text-decoration: none; border-radius: 6px; font-weight: 800;
+            font-size: 0.8rem; transition: 0.3s;
         }
 
-        .btn-exe:hover { background: #fff; }
+        .btn-exe:hover { background: #fff; box-shadow: 0 0 15px #fff; }
+
     </style>
 </head>
 <body>
@@ -112,37 +114,34 @@
         <a href="hardware.html">System Specs</a>
 
         <div style="margin-top: auto;" class="nav-label">EXTERNAL</div>
-        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Support</a>
+        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Access Support</a>
     </div>
 
     <div class="content">
         <div class="header">
-            <div style="font-size: 0.8rem; color: #555; margin-bottom: 10px;">>_ System status: <span style="color: var(--accent);">READY</span></div>
+            <div style="font-size: 0.7rem; color: #444; margin-bottom: 5px;">>_ NODE: STABLE</div>
             <h1>Dashboard / <span>Software</span></h1>
         </div>
 
         <div class="card-grid">
             <div class="card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/512136206114976283_0" alt="Pacify" class="card-img">
+                <div class="img-container">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_720p/co1v9x.jpg" alt="Pacify" class="card-img">
+                </div>
                 <div class="card-body">
                     <div class="badge">STABLE RELEASE</div>
                     <h3>Pacify_Standalone</h3>
-                    <p>Trải nghiệm kinh dị đỉnh cao. File sạch, chạy trực tiếp không cần cài đặt rườm rà.</p>
+                    <p>Trải nghiệm kinh dị đỉnh cao. Đã tối ưu hóa file thực thi sạch.</p>
                     <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-exe">RUN INSTALLER</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/4752696570895801016_0" alt="Age of History 3" class="card-img">
-                <div class="card-body">
-                    <div class="badge">FULL VERSION</div>
-                    <h3>Age_of_History_3</h3>
-                    <p>Chỉ huy quân đội, xây dựng đế chế. Dữ liệu bao gồm đầy đủ các kịch bản mới nhất.</p>
-                    <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-exe">RUN INSTALLER</a>
+                <div class="img-container">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_720p/co8p47.jpg" alt="Age of History 3" class="card-img">
                 </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
+                <div class="card-body">
+                    <div class="badge">FULL ACCESS</div>
+                    <h3>Age_of_History_3</h3>
+                    <p>Chỉ huy quân sự, chiến thuật đế chế toàn cầu. Phiên bản mới nhất.</p>
+                    <a href="
