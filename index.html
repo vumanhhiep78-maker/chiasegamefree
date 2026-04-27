@@ -3,116 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSGF | Game Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>CSGF | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --sidebar-bg: #111111;
-            --main-bg: #000000;
-            --accent: #007bff; /* Màu xanh dương công nghệ */
-            --text-dim: #888888;
-            --border: #222222;
+            --bg-sidebar: #1e1e1e;
+            --bg-main: #121212;
+            --lime: #3fb950; /* Màu xanh lá GitHub/Bedrock */
+            --text-gray: #8b949e;
         }
 
         body {
-            margin: 0; display: flex; font-family: 'Inter', sans-serif;
-            background: var(--main-bg); color: white;
+            margin: 0; display: flex; background: var(--bg-main); color: white;
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        /* MENU DỌC BÊN TRÁI (SIDEBAR) */
+        /* SIDEBAR GIỐNG ẢNH BẠN GỬI */
         .sidebar {
-            width: 260px; height: 100vh; background: var(--sidebar-bg);
-            border-right: 1px solid var(--border); position: fixed;
-            padding: 30px 20px; box-sizing: border-box; overflow-y: auto;
+            width: 280px; height: 100vh; background: var(--bg-sidebar);
+            position: fixed; left: 0; top: 0; padding: 20px;
+            box-sizing: border-box; overflow-y: auto; border-right: 1px solid #333;
         }
 
-        .logo { font-weight: 800; font-size: 1.2rem; color: var(--accent); margin-bottom: 40px; }
-
-        .menu-label {
-            font-size: 0.7rem; color: var(--text-dim); font-weight: 700;
-            letter-spacing: 1px; margin: 20px 0 10px; text-transform: uppercase;
+        .category-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem; color: #fff; margin: 25px 0 10px;
+            text-transform: uppercase; letter-spacing: 2px;
         }
 
         .sidebar a {
-            display: block; color: #ccc; text-decoration: none;
-            padding: 10px 0; font-size: 0.95rem; transition: 0.2s;
+            display: block; color: var(--lime); text-decoration: none;
+            padding: 8px 0; font-size: 0.95rem; transition: 0.2s;
         }
 
-        .sidebar a:hover { color: var(--accent); }
-        .sidebar a.active { color: white; border-left: 2px solid var(--accent); padding-left: 10px; }
+        .sidebar a:hover { text-decoration: underline; color: #fff; }
 
-        /* NỘI DUNG CHÍNH BÊN PHẢI */
-        .main-content {
-            margin-left: 260px; padding: 60px 10%; width: 100%;
-        }
-
-        .header-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 40px; }
-
-        .game-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
-        }
+        /* NỘI DUNG CHÍNH */
+        .content { margin-left: 280px; padding: 40px; width: 100%; }
+        
+        .header { border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 30px; }
+        .header h1 { font-size: 2rem; color: #fff; margin: 0; }
 
         .game-card {
-            background: #161616; border: 1px solid var(--border);
-            border-radius: 12px; padding: 25px; transition: 0.3s;
+            background: #1c1c1c; border: 1px solid #333;
+            border-radius: 8px; padding: 20px; margin-bottom: 20px;
+            border-left: 4px solid var(--lime);
         }
 
-        .game-card:hover { border-color: #444; background: #1c1c1c; }
-        .game-card h3 { margin: 0 0 10px 0; font-size: 1.4rem; }
-        .game-card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; }
-
-        .btn-download {
-            display: inline-block; padding: 10px 20px; background: var(--accent);
-            color: white; text-decoration: none; border-radius: 6px;
-            font-weight: 600; font-size: 0.85rem;
+        .btn-dl {
+            background: transparent; border: 1px solid var(--lime);
+            color: var(--lime); padding: 8px 16px; text-decoration: none;
+            border-radius: 4px; font-weight: bold; transition: 0.3s;
+            display: inline-block; margin-top: 10px;
         }
 
-        .btn-download:hover { opacity: 0.9; }
-
-        /* PHẦN GIỚI THIỆU */
-        .intro-box {
-            background: rgba(255,255,255,0.03); border-radius: 12px;
-            padding: 20px; margin-bottom: 50px; border-left: 4px solid var(--accent);
-        }
+        .btn-dl:hover { background: var(--lime); color: #000; }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
-        <div class="logo">CSGF_PORTAL</div>
+        <div style="color: var(--lime); font-weight: bold; margin-bottom: 20px;">CSGF_VERSION_1.0</div>
         
-        <div class="menu-label">Game List</div>
-        <a href="index.html" class="active">Tất cả game</a>
-        <a href="#">Bản cập nhật mới</a>
+        <div class="category-title">RELEASES</div>
+        <a href="index.html">Releases</a>
+        <a href="#">Public Releases</a>
 
-        <div class="menu-label">Support & Social</div>
-        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Yêu cầu hỗ trợ</a>
-        <a href="#">Tham gia cộng đồng</a>
+        <div class="category-title">DEV INFO</div>
+        <a href="hardware.html">Hardware Prerequisites</a>
+        <a href="#">Website Source</a>
 
-        <div class="menu-label">Development</div>
-        <a href="#">Mã nguồn website</a>
-        <a href="#">Phần cứng yêu cầu</a>
+        <div class="category-title">LEGAL</div>
+        <a href="https://www.facebook.com/vu.manh.hiep.761667/about" target="_blank">Disclaimers</a>
+        <a href="#">License</a>
     </div>
 
-    <div class="main-content">
-        <h1 class="header-title">Trang chủ</h1>
-
-        <div class="intro-box">
-            <p style="margin: 0; color: #ccc;">Chào mừng đến với CSGF. Đây là kho game sạch do Vũ Mạnh Hiệp quản lý. Mọi tệp tin đều được quét virus và tối ưu tốc độ tải.</p>
+    <div class="content">
+        <div class="header">
+            <h1>Trang chủ / Releases</h1>
         </div>
 
-        <div class="game-grid">
-            <div class="game-card">
-                <h3>Pacify</h3>
-                <p>Phiên bản tệp tin gốc của trò chơi Pacify. Hỗ trợ chơi đa người dùng ổn định trên PC.</p>
-                <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-download">DOWNLOAD (DRIVE)</a>
-            </div>
+        <div class="game-card">
+            <h3 style="margin:0">Pacify</h3>
+            <p style="color:var(--text-gray)">Bản gốc trò chơi Pacify dành cho PC.</p>
+            <a href="https://drive.google.com/file/d/12UPH_FbpdHPxYyLQfejwJZm23ZZdpMUz/view?usp=sharing" target="_blank" class="btn-dl">DOWNLOAD</a>
+        </div>
 
-            <div class="game-card">
-                <h3>Age of History 3</h3>
-                <p>Dữ liệu đầy đủ cho tựa game chiến thuật AoH 3. Bao gồm các quốc gia và bản đồ mới nhất.</p>
-                <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-download">DOWNLOAD (MEDIAFIRE)</a>
-            </div>
+        <div class="game-card">
+            <h3 style="margin:0">Age of History 3</h3>
+            <p style="color:var(--text-gray)">Full Data AoH 3 - MediaFire Link.</p>
+            <a href="https://www.mediafire.com/file/lul4f1klyeftjqi/Age_of_History_3.rar/file" target="_blank" class="btn-dl">DOWNLOAD</a>
         </div>
     </div>
 
