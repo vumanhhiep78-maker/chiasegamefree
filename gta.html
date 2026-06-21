@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSGF_CORE | MỤC GAME GTA</title>
+    <title>GTA ARCHIVE | CSGF_CORE</title>
     <style>
-        body { background-color: #121212; color: #ffffff; font-family: sans-serif; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        .btn-back { display: inline-block; color: #aaa; text-decoration: none; margin-bottom: 20px; font-size: 14px; }
-        .btn-back:hover { color: #fff; }
-        .header-title { color: #ff9f43; border-bottom: 2px solid #ff9f43; padding-bottom: 10px; }
-        .game-card { background-color: #1a1a1a; border: 1px solid #333; padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 5px solid #ff9f43; }
-        .btn-download { display: inline-block; background-color: #ff9f43; color: #000; text-decoration: none; padding: 10px 20px; font-weight: bold; border-radius: 4px; margin-top: 10px; }
-        .btn-download:hover { background-color: #e08b35; }
+        body {
+            background: #050505; color: #fff; font-family: 'Inter', sans-serif;
+            margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center;
+        }
+        .container { width: 100%; max-width: 800px; }
+        .back { color: #64748b; text-decoration: none; font-size: 0.8rem; font-weight: bold; }
+        .back:hover { color: #fb923c; }
+        header h1 { color: #fb923c; font-size: 2.5rem; margin: 20px 0 40px 0; letter-spacing: -1px; }
+        
+        .game-item {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px; border-radius: 20px; margin-bottom: 20px; border-left: 6px solid #fb923c;
+        }
+        .game-item h2 { margin: 0 0 10px 0; font-size: 1.4rem; color: #fb923c; }
+        .game-item p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; }
+        
+        .dl-btn {
+            display: inline-block; background: #fb923c; color: #000; text-decoration: none;
+            padding: 12px 25px; border-radius: 10px; font-weight: bold; margin-top: 15px; transition: 0.3s;
+        }
+        .dl-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(251, 146, 60, 0.4); }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="btn-back">← Quay lại Dashboard</a>
-        <h1 class="header-title">DANH SÁCH GAME GTA</h1>
-        <p>Nơi tổng hợp các bản game Grand Theft Auto siêu sạch của CSGF_CORE.</p>
+        <a href="index.html" class="back">← BACK TO DASHBOARD</a>
+        <header>
+            <h1>GTA ARCHIVE</h1>
+        </header>
 
-        <div class="game-card">
-            <h2>Grand Theft Auto 3 (GTA 3)</h2>
-            <p><strong>Trạng thái:</strong> Bản gốc chuẩn sạch, giải nén là chơi.</p>
-            <p><strong>Định dạng:</strong> File nén .zip</p>
-            <a href="https://www.mediafire.com/file/eam67g517xwgy1v/Grand+Theft+Auto+3.zip/file" target="_blank" class="btn-download">
-                TẢI GAME QUA MEDIAFIRE
-            </a>
+        <div class="game-item">
+            <h2>Grand Theft Auto III</h2>
+            <p>Welcome to Liberty City. Where it all began. Clean pre-installed build, just extract and run.</p>
+            <a href="#" target="_blank" class="dl-btn">DOWNLOAD GTA 3</a>
         </div>
     </div>
 </body>
