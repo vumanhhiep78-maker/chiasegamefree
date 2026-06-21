@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSGF_CORE | HORROR ARCHIVE</title>
+    <style>
+        /* High-tech Gradient Background (Dark Red/Purple tone for Horror) */
+        body {
+            background: linear-gradient(135deg, #0f0f12 0%, #1a0b0b 50%, #2d0808 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 60px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Back Button Style */
+        .btn-back {
+            display: inline-block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-back:hover {
+            color: #f87171;
+            transform: translateX(-3px);
+        }
+
+        header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Glowing Red Horror Title */
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #ff4d4d, #f87171, #ff4d4d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            filter: drop-shadow(0 2px 8px rgba(248, 113, 113, 0.4));
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        /* PREMIUM GLASSMORPHISM ITEM CARD */
+        .game-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-left: 4px solid #f87171;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(248, 113, 113, 0.3);
+            box-shadow: 0 15px 30px rgba(248, 113, 113, 0.1);
+        }
+
+        .game-card h2 {
+            color: #f87171;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .meta-info {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .meta-info strong {
+            color: #94a3b8;
+        }
+
+        /* High-tech Crimson Download Button */
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #f87171, #dc2626);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 28px;
+            font-weight: bold;
+            font-size: 0.95rem;
